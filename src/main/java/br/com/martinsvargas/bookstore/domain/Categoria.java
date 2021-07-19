@@ -1,15 +1,34 @@
 package br.com.martinsvargas.bookstore.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Categoria {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
+@Entity
+public class Categoria implements Serializable{
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	private String descricao;
 	
+	/**
+	 * 1 Categoria por ter vários Livros, e 1 Livro pode ter somente 1 Categoria.
+	 * A lista do tipo Livro mapeia os livros que pertencem a esta Categoria em questão.
+	 * A anottation abaixo diz que o atributo "categoria" na entity Livro mapeia esta Categoria.
+	 * No fim das contas, a anottation abaixo aproveita a declaração dos livros que pertencem a
+	 * esta categoria para declarar qual atributo em Livro mapeia esta Categoria, fechando o 
+	 * encadeamento das relações: Categoria com Livros, Livros com Categoria.
+	 */
+	@OneToMany(mappedBy = "categoria")  
 	private List<Livro> livros = new ArrayList<>();
 
 	public Categoria() {
