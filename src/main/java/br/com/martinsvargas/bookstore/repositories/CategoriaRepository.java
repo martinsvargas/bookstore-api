@@ -1,6 +1,7 @@
-package repositories;
+package br.com.martinsvargas.bookstore.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import br.com.martinsvargas.bookstore.domain.Categoria;
 
@@ -11,6 +12,7 @@ import br.com.martinsvargas.bookstore.domain.Categoria;
  * chave primária da Entity enviada no primeiro parâmetro.
  *
  */
+@Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
 
 }

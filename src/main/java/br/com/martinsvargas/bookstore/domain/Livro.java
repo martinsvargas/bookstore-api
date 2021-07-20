@@ -26,6 +26,25 @@ public class Livro {
 	private String nomeAutor;
 	private String texto;
 	
+	
+	public Livro() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	public Livro(Integer id, String titulo, String nomeAutor, String texto, Categoria categoria) {
+		super();
+		this.id = id;
+		this.titulo = titulo;
+		this.nomeAutor = nomeAutor;
+		this.texto = texto;
+		this.categoria = categoria;
+	}
+
+
+
 	/**
 	 * No Doctrine eu declarava inversedBy, dentro de ManyToOne para apontar qual atributo
 	 * em Categoria mapeia os Livros, inclusive o Livro em questão. 
