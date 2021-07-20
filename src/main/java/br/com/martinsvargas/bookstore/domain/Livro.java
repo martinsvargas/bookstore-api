@@ -36,7 +36,7 @@ public class Livro {
 	 * "categoria_id", que obviamente vai apontar para a chave estrangeira de Categoria.
 	 */
 	@ManyToOne
-	@JoinColumn("categoria_id")
+	@JoinColumn(name = "categoria_id") // Por padrão ele cria categoria_id porém, deixei declarado para fins de estudo.
 	private Categoria categoria;
 
 	@Override

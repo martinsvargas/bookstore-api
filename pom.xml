@@ -23,6 +23,16 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+
+		<!-- O spring-boot-starter-data-jpa é instalado por padrão junto com o Spring Boot. Creio que isso se deva 
+			ao a utilização do "spring-boot-starter-parent".  
+			O Spring Data JPA é um projeto dentro de um outro maior que é o Spring Data. Dizemos que o Spring Data 
+			possui vários projetos, dentre eles o Spring Data JPA, Spring Data Commons, Spring Data Key Value, 
+			Spring Data Ldap, etc. Ele também é chamado de framework. A missão dele 
+			é evitar que tenhamos que criar os DAO's que fazem a interface com o baco de dados através de SQL. 
+			Antigamente uma Model precisava necessariamente de respectivo DAO. Implementando o Spring Data JPA ele 
+			deixa prontas muitas instruções comuns como busca por id, insert, update, delete, paginação e etc. Em 
+			outras palavras, ele tem todos os métodos necessários para um CRUD.-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -56,6 +66,9 @@
 
 	<build>
 		<plugins>
+			<!-- É o plugin abaixo que permite eu declarar "mvn spring-boot:run" por exemplo. Ele complementa
+				os comandos do maven incrementando as opções, provavelmente através da implementação do 
+				Command Pattern -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
